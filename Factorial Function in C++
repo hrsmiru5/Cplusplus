@@ -1,0 +1,16 @@
+// Write a C++ function that returns the factorial of a natural number $n$ passed as a parameter ($n! = 1 \cdot 2 \cdot \dots \cdot n$).
+
+#include <iostream>
+using namespace std;
+int fact(int n)
+{
+    int i,f=1;
+    if(n<0)
+        return 0;
+    else
+    {
+        for(i=1; i<=n; i++)
+            f=f*i;
+    }
+    return f;
+}
