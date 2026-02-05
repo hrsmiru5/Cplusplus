@@ -1,0 +1,17 @@
+// Given a natural number $n$, calculate the square of its smallest proper divisor.
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+    int d,n;
+    cin>>n;
+    for(d=2;d<=n/2;d++)
+    {
+        if(n%d==0)
+            break;
+    }
+    d=d*d;
+    cout<<d;
+    return 0;
+}
