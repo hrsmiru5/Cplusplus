@@ -1,0 +1,37 @@
+// Write a fabulous program that reads a non-zero natural number $n$ and determines:The sum of the squares of its digits.The sum of its odd digits.The sum of its digits divisible by 3.The count of digits strictly greater than 5.The product of its non-zero digits.The sum of its least significant digit (units digit) and its most significant digit.
+
+#include <iostream>
+
+using namespace std;
+int main()
+{
+    long long n;
+    int a=0,b=0,c=0,d=0,e=1,f=0,x;
+    cin>>n;
+    x=n%10;
+    while(n>9)
+    {
+        if(n%10%2!=0)
+            b=b+n%10;
+        if(n%10%3==0)
+            c=c+n%10;
+        if(n%10>5)
+            d++;
+        if(n%10!=0)
+            e=e*(n%10);
+        a=a+(n%10)*(n%10);
+        n=n/10;
+    }
+    if(n!=0)
+        e=e*n;
+    if(n%2!=0)
+        b=b+n;
+    if(n%3==0)
+        c=c+n;
+    if(n>5)
+        d++;
+    a=a+n*n;
+    f=x+n;
+    cout<<a<<' '<<b<<' '<<c<<' '<<d<<' '<<e<<' '<<f;
+    return 0;
+}
