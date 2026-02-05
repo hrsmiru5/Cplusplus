@@ -1,0 +1,46 @@
+// For a given number $x$, we define:The reverse (mirror) of $x$: the number formed by the digits of $x$ in reverse order.The trace of $x$: the difference between a number composed of as many digits of $9$ as $x$ has, and the number $x$ itself.Clean Number: $x$ is "clean" if its reverse is equal to its trace.Example: 27 is clean because its reverse is 72, its trace is $99 - 27 = 72$, and $72 = 72$.Given up to $1,000$ natural numbers ($x < 10^8$), determine for each if it is "clean" or not.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+int nrcif(int x)
+{
+    int nr=0;
+    while(x)
+    {
+        x=x/10;
+        nr++;
+    }
+  return nr; 
+}
+
+int main()
+{
+    ifstream fin("nrcurat.in");
+    ofstream fout("nrcurat.out");
+    long long int x,ogl=0,u,p=1,ni=0,n,y;
+    while(fin>>x)
+    {
+        n=x;
+        ogl=0;ni=0;
+        while(n)
+        {
+        ogl=ogl*10+n%10;
+        
+        n=n/10;
+        }
+        y=nrcif(x);
+        while(y)
+        {
+            ni=ni*10+9;
+            y--;
+        }
+        u=ni-x;
+        if(ogl==u)
+            fout<<1<<' ';
+        else
+            fout<<0<<' ';
+    }
+    fin.close();
+    fout.close();
+    return 0;}
