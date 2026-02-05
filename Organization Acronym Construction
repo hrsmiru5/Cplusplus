@@ -1,0 +1,24 @@
+// Consider a text with at most 100 characters, representing the name of an institution or organization. Words consist only of uppercase and lowercase English letters and are separated by a single space. Write a program that reads the text and constructs an acronym consisting of the first character of each word that starts with an uppercase letter.
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+    char s[101], nou[101]="";
+    int i,k=0;
+    cin.get(s,101);
+    if(s[0]>='A' && s[0]<='Z')
+    {
+        nou[k]=s[0];
+        k++;
+    }
+    for(i=1;i<=strlen(s)-1;i++)
+        if(s[i]>='A' && s[i]<='Z' && s[i-1]==' ')
+        {
+            nou[k]=s[i];
+            k++;
+        }
+    cout<<nou;
+    return 0;
+}
