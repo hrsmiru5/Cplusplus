@@ -1,0 +1,19 @@
+// Write the complete definition of the subprogram multipli, which takes three natural numbers as parameters: $a$, $b$, and $c$ ($a \le b$). The function shall return the count of multiples of $c$ within the closed interval $[a, b]$.
+
+#include <iostream>
+using namespace std;
+int multipli(int a,int b,int c)
+{
+    int i,nr=0;
+    if(a>b)
+    {
+        a=a+b;
+        b=a-b;
+        a=a-b;
+       
+    }
+    if(a%c==0)
+        nr=b/c-a/c+1;
+    else nr=b/c-a/c;
+    return nr;
+}
