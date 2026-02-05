@@ -1,0 +1,42 @@
+// Write a program to check if a given word is a palindrome. A palindrome is a word that reads the same forward and backward (e.g., "radar", "level").
+
+#include <iostream>
+#include <fstream>
+#include <cstring>
+using namespace std;
+
+int palindrom(char s[21])
+{
+    int i,j;
+    i=0;
+    j=strlen(s)-1;
+    while(i<j)
+    {
+        if(s[i]!=s[j])
+            return 0;
+        i++;
+        j--;
+    }
+    return 1;
+}
+int main()
+{
+    ifstream fin("palindrom.in");
+    ofstream fout("palindrom.out");
+    int i,n;
+    char s[21];
+    fin>>n;
+    for(i=1; i<=n; i++)
+    {
+        fin>>s;
+        if(palindrom(s)==1)
+            fout<<1<<endl;
+        else
+            fout<<0<<endl;
+
+    }
+    fin.close();
+    fout.close();
+
+    return 0;
+}
