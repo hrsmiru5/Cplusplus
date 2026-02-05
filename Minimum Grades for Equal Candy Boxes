@@ -1,0 +1,23 @@
+// Bubu has 2 boxes of candies: the first box contains $a$ candies, and the second box contains $b$ candies. His grandmother promised that every time he receives a grade of 10 in Computer Science, she will add $a$ more candies to the first box. His grandfather promised that every time he receives a 10 in Mathematics, he will add $b$ more candies to the second box. Determine the minimum total number of grades Bubu needs to receive so that the number of candies in both boxes becomes equal.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    long long a,b,cm,k,ca,cb,p,r;
+    cin>>a>>b;
+    p=a*b;
+    ca=a;
+    cb=b;
+   while(b)
+   {
+       r=a%b;
+       a=b;
+       b=r;
+   }
+    cm=p/a;
+    k=cm/ca;
+    p=cm/cb;
+    cout<<p-1+k-1;
+    return 0;
+}
