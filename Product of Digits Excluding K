@@ -1,0 +1,19 @@
+// Write a program that reads a natural number $n$ and a digit $k$. The program shall calculate the product $P$ of the digits of $n$ that are different from the digit $k$.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n,k,p=1,ok=0;
+    cin>>n>>k;
+    while(n)
+    {
+        if(n%10!=k)
+        {   p=p*(n%10);ok=1;}
+        n=n/10;
+    }
+    if(ok==0)
+        cout<<0;
+    else cout<<p;
+    return 0;
+}
