@@ -1,0 +1,17 @@
+// Write a program that reads a non-zero natural number $n$ and calculates the sum of all its distinct prefixes.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    long long s=0;
+    cin>>n;
+    while(n)
+    {
+       s=s+n;
+        n=n/10;
+    }
+    cout<<s;
+    return 0;
+}
