@@ -1,0 +1,41 @@
+// Given a string containing words made of lowercase English letters, separated by one or more spaces. There are no spaces before the first word or after the last word. Modify the given string so that every word consisting of exactly three letters is replaced with the symbol *.
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+int verif(char n)
+{
+    if(n>='a' && n<='z')
+        return 1;
+    else return 0;
+}
+int main()
+{
+    char s[256],t[256]="";
+    cin.get(s,256);
+    int nr=0,i=0;
+    for(i=0;i<=strlen(s)-1;i++)
+    {
+        if(verif(s[i])==1)
+            nr++;
+        else {
+                if(nr==3)
+                {
+                    s[i-3]='*';
+                    strcpy(t,s+i);
+                    strcpy(s+i-2,t);
+                    i=i-2;
+                }
+                 nr=0;
+            }
+    }
+        if(nr==3)
+                {
+                    s[i-3]='*';
+                    strcpy(t,s+i);
+                    strcpy(s+i-2,t);
+                    i=i-2;
+                }   
+    cout<<s;
+    return 0;
+}
