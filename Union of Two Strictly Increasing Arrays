@@ -1,0 +1,65 @@
+// Given two arrays $a$ and $b$, with $n$ and $m$ natural numbers respectively, both strictly sorted in increasing order. Display, in strictly increasing order, the values that exist in at least one of the two arrays.
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+    ifstream fin("interclasare1.in");
+    ofstream fout("interclasare1.out");
+    int nr=0,i=1,j=1,m,n,b[100001],a[100001],x,y;
+    fin>>n;
+    for(x=1;x<=n;x++)
+        fin>>a[x];
+    fin>>m;
+    for(y=1;y<=m;y++)
+        fin>>b[y];
+    while(i<=n && j<=m)
+    {
+        if(a[i]<b[j])
+        {
+            fout<<a[i]<<' ';
+            i++;
+            nr++;
+            if(nr%10==0)
+                fout<<endl;
+        }
+        else if(a[i]>b[j])
+        {
+            fout<<b[j]<<' ';
+            j++;
+            nr++;
+            if(nr%10==0)
+                fout<<endl;
+        }
+        else
+        {
+            fout<<a[i]<<' ';
+            i++;
+            j++;
+            nr++;
+            if(nr%10==0)
+                fout<<endl;
+        }
+    }
+    while(i<=n)
+    {
+        fout<<a[i]<<' ';
+        i++;
+        nr++;
+        if(nr%10==0)
+            fout<<endl;
+    }
+    while(j<=m)
+    {
+        fout<<b[j]<<' ';
+        j++;
+        nr++;
+        if(nr%10==0)
+            fout<<endl;
+    }
+    fin.close();
+    fout.close();
+    return 0;
+
+}
