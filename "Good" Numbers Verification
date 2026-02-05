@@ -1,0 +1,41 @@
+// Two numbers are considered "good" if the maximum digit of one number matches the minimum digit of the other, or vice versa. Given two natural numbers $a$ and $b$, check if they are "good" and display the common digit. If the two numbers are not "good," display NO.
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a,b,minia=1000,minib=1000,maxia=0,maxib=0,c;
+    cin>>a>>b;
+    while(a)
+    {
+        if(minia>a%10)
+            minia=a%10;
+        if(maxia<a%10)
+            maxia=a%10;
+        a=a/10;
+    }
+    while(b)
+    {
+        if(minib>b%10)
+            minib=b%10;
+        if(maxib<b%10)
+            maxib=b%10;
+        b=b/10;
+    }
+    if(minia==maxib)
+    {
+        c=maxib;
+        cout<<c;
+    }
+    else
+    {
+        if(maxia==minib)
+        {
+            c=maxia;
+            cout<<c;
+        }
+        else cout<<"NU";
+
+    }
+    return 0;
+}
